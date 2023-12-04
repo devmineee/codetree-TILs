@@ -20,7 +20,7 @@ public class Main {
         }
         System.out.print(cnt + " ");
         if (cnt == 0) {
-            System.out.print("0");
+            System.out.print("0.00");
         }
         else {
             double avg = len/cnt;
