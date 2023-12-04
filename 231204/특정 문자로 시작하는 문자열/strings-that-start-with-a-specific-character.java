@@ -18,13 +18,8 @@ public class Main {
                 len += str[i].length();
             }
         }
+        double avg = len*100/cnt;
         System.out.print(cnt + " ");
-        if (cnt == 0) {
-            System.out.print("0.00");
-        }
-        else {
-            double avg = len/cnt;
-            System.out.printf("%.2f", avg);
-        }
+        System.out.printf("%.2f", avg/100);
     }
 }
