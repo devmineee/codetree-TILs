@@ -19,7 +19,12 @@ public class Main {
             }
         }
         System.out.print(cnt + " ");
-        double avg = len/cnt;
-        System.out.printf("%.2f", avg);
+        if (cnt == 0) {
+            System.out.print("0");
+        }
+        else {
+            double avg = len/cnt;
+            System.out.printf("%.2f", avg);
+        }
     }
 }
