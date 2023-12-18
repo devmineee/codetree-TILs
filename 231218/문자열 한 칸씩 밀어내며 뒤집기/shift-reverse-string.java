@@ -11,21 +11,23 @@ public class Main {
             
             if (req == 1) {
                 str = str.substring(1) + str.substring(0,1);
+                System.out.println(str);
             }
 
             else if (req == 2) {
                 str = str.substring(len-1) + str.substring(0,len-1);
+                System.out.println(str);
             }
 
             else if (req == 3) {
                 String temp = "";
                 for (int j=len-1; j>=0; j--) {
-                    temp += str.charAt(j);
+                    System.out.print(str.charAt(j));
                 }
-                str = temp;
+                System.out.println();
             }
 
-            System.out.println(str);
+            
 
 
         }        
