@@ -3,7 +3,7 @@ import java.util.Scanner;
 class SaveFunc {
     int num1, num2;
 
-    public SaveFunc(int numA, numB) {
+    public SaveFunc(int numA, int numB) {
         if (numA > numB) {
             this.num1 = numA + 25;
             this.num2 = numB * 2;
@@ -23,8 +23,8 @@ public class Main {
         int a = sc.nextInt();
         int b = sc.nextInt();
         SaveFunc asdf = new SaveFunc(a,b);
-        a = this.num1;
-        b = this.num2;
+        a = asdf.num1;
+        b = asdf.num2;
 
         System.out.print(a+" "+b);
 
