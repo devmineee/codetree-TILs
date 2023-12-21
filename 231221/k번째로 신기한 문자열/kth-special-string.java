@@ -8,7 +8,7 @@ public class Main {
         String T = sc.next();
         String[] arr = new String[n];
         for (int i=0; i<n; i++) {
-            String temp = sc.next();
+            String temp = sc.nextLine();
             if (temp.contains(T)) {
                 arr[i] = temp;
             }
