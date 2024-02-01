@@ -14,7 +14,7 @@ class Number implements Comparable<Number> {
     @Override
     public int compareTo(Number number) {
         if (this.num == number.num) {
-            return number.idx - this.num;
+            return - number.idx + this.num;
         }
         else {
             return this.num - number.num;
