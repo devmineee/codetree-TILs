@@ -13,8 +13,9 @@ class Number implements Comparable<Number> {
 
     @Override
     public int compareTo(Number number) {
+        // 같은 숫자인 경우 인덱스가 낮은 쪽이 리턴 값이 더 낮아야 함
         if (this.num == number.num) {
-            return - number.idx + this.num;
+            return this.idx - number.idx;
         }
         else {
             return this.num - number.num;
