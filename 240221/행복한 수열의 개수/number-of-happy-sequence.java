@@ -27,6 +27,7 @@ public class Main {
                 }
                 else {
                     colCnt = 1;
+                    col = arr[i][j];
                 }
                 
 
@@ -36,6 +37,7 @@ public class Main {
                 }
                 else {
                     rowCnt = 1;
+                    row = arr[j][i];
                 }
             }
 
