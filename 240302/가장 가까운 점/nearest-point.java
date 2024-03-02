@@ -13,7 +13,12 @@ class Pair implements Comparable<Pair> {
 
     @Override
     public int compareTo(Pair pair){
-         return Math.abs(this.x) + Math.abs(this.y) - (Math.abs(pair.x) + Math.abs(pair.y));
+        
+        if (Math.abs(this.x) + Math.abs(this.y) == (Math.abs(pair.x) + Math.abs(pair.y))) {
+            return Math.abs(this.x) - Math.abs(pair.x);
+        }
+        
+        return Math.abs(this.x) + Math.abs(this.y) - (Math.abs(pair.x) + Math.abs(pair.y));
     }
 }
 
@@ -30,7 +35,7 @@ public class Main {
             Pair pair = new Pair(x,y);
             pq.add(pair);
         }
-        
+
         for (int i=0; i<m; i++) {
             Pair pair = pq.poll();
             pair.x += 2;
