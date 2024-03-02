@@ -20,7 +20,7 @@ public class Main {
             pq.add(thisNum);
         }
         
-        System.out.print(Math.abs(pq.peek()));
+        System.out.print(pq.peek()*(-1));
         
     }
 }
