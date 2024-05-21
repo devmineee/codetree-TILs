@@ -23,6 +23,10 @@ public class Main {
                 }
             }
         }
+        if (max < currentCnt) {
+            max = currentCnt;
+            currentCnt = 0;
+        }
 
         System.out.print(max);
     }
