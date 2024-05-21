@@ -19,8 +19,9 @@ public class Main {
             else {
                 if (max < currentCnt) {
                     max = currentCnt;
-                    currentCnt = 0;
                 }
+
+                    currentCnt = 0;
             }
         }
         if (max < currentCnt) {
