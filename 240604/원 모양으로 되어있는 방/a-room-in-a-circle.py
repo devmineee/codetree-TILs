@@ -1,5 +1,7 @@
+import sys
+
 N = int(input())
-minDist = N*1000
+minDist = sys.maxsize
 personArr = [0] * N
 for i in range(N):
     personArr[i] = int(input())
