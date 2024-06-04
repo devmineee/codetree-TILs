@@ -22,6 +22,10 @@ public class Main {
             sum += Character.getNumericValue(arr[i])*t;
             t*=2;
         }
+
+        if (input.equals("1")) sum = 0;
+
+
         System.out.print(sum);
         
     }
