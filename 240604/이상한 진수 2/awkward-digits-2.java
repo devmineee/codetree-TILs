@@ -23,7 +23,7 @@ public class Main {
             t*=2;
         }
 
-        if (input.equals("1")) sum = 0;
+        if (isChanged == false) sum --;
 
 
         System.out.print(sum);
