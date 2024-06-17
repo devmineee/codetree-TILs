@@ -9,7 +9,10 @@ while arr[0] == arr[n-1] and cnt < n:
     cnt += 1
 
 if cnt == n:
-    print(3)
+    if cnt == 10:
+        print(3)
+    else:
+        print(2)
 else:
     i = 0
     cnt = 0
