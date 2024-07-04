@@ -12,7 +12,7 @@ def cal_line(i, lst):
 
         for y1, y2 in lst:
             
-            if y2 <= x1 or y1 >= x2 :
+            if y2 < x1 or y1 > x2 :
                 pass
             else:
                 cal_line(i+1, lst)
