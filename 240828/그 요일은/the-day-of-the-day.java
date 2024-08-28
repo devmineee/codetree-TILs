@@ -10,7 +10,7 @@ public class Main {
         String A = sc.next();
         
         String[] days = new String[]{"", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
-        int[] days_of_month = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        int[] days_of_month = new int[]{0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         int A_day_num = 0;
 
         // A 요일이 day 배열의 몇 번 인덱스인지 확인
