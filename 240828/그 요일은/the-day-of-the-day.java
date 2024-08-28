@@ -22,7 +22,7 @@ public class Main {
         }
 
         
-        int total_days = 1;
+        int total_days = 0;
 
          // m1월 d1일 부터 m2월 d2일까지는 총 며칠 있는가?
          while (true) {
