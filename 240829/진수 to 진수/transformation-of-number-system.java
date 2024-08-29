@@ -13,7 +13,7 @@ public class Main {
             num = num * a + (n.charAt(i) - '0');
         }
 
-        int[] notation = new int[10];
+        int[] notation = new int[20];
 
         int cnt = 0;
 
