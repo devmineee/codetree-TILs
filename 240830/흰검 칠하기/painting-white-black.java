@@ -16,17 +16,17 @@ public class Main {
             char dir = sc.next().charAt(0);
 
             if (dir == 'L') {
-                for (int j=current_position - 1; j>current_position - 1 - x; j--) {
+                for (int j=current_position; j>current_position- x; j--) {
                     tiles[j].append("w");
                 }
-                current_position = current_position - x;
+                current_position = current_position - x + 1;
             }
 
             else if (dir == 'R') {
                 for (int j=current_position; j<current_position+x; j++) {
                     tiles[j].append("b");
                 }
-                current_position = current_position + x;
+                current_position = current_position + x - 1;
             }
         }
 
@@ -43,7 +43,9 @@ public class Main {
                 else if (tiles[i].charAt(j) == 'b') black++;
             }
             
-            if (white >= 2 && black>=2) ans_gray++;
+            if (white >= 2 && black>=2) {
+                ans_gray ++;
+            }
             else {
                 char last_color = tiles[i].charAt(tiles[i].length()-1);
                 if (last_color == 'b') ans_black++;
