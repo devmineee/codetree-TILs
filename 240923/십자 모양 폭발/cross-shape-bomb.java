@@ -26,7 +26,7 @@ public class Main {
                 int tempArrayIdx = n;
 
                 for (int i=n; i>=1; i--) {
-                    if (r - powerOfBomb / 2  <= i && i <= r + powerOfBomb / 2) continue;
+                    if (r - powerOfBomb  < i && i < r + powerOfBomb) continue;
 
                     
                     arrTemp[tempArrayIdx][c] = arr[i][c];
@@ -34,7 +34,7 @@ public class Main {
                 }
             }
 
-            else if (c - powerOfBomb / 2 <=j && j <=c + powerOfBomb / 2) {
+            else if (c - powerOfBomb < j && j < c + powerOfBomb) {
                 int tempArrayIdx = n;
                 for (int i=n; i>=1; i--) {
                     if (i == r) continue;
