@@ -6,7 +6,7 @@ public class Main {
 
         int n = sc.nextInt();
         int[] arr = new int[n+1]; // 1번 인덱스부터 세기 위해
-        for (int i=n; i>=1; i--) {
+        for (int i=1; i<=n; i++) {
             arr[i] = sc.nextInt();
         }
         int s1 = sc.nextInt();
@@ -34,7 +34,7 @@ public class Main {
         }
 
         System.out.println(endOfSecondTemp);
-        for (int i=endOfSecondTemp; i>=1; i--) {
+        for (int i=1; i<=endOfSecondTemp; i++) {
             System.out.println(secondTemp[i]);
         }
     }
