@@ -9,7 +9,7 @@ public class Main {
     public static boolean isBoom(int idx, int M) {
 
         if (arr[idx] == 0) return false; // 폭탄이 없을 경우 터지지 않음
-        if (idx + M >= MAX_N ) return false; // 배열 최대 크기보다 갯수가 작을 경우 터지지 않음
+        if (idx + M > MAX_N ) return false; // 배열 최대 크기보다 갯수가 작을 경우 터지지 않음
         
         int count = 1; // 최초 카운트는 자기자신 1
         while (idx + count <= MAX_N) {
