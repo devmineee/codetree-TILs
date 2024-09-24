@@ -7,10 +7,12 @@ public class Main {
     public static int[] arr = new int[MAX_N+1];
 
     public static boolean isBoom(int idx, int M) {
+
+        if (arr[idx] == 0) return false; // 폭탄이 없을 경우 터지지 않음
+        if (idx + M >= MAX_N ) return false; // 배열 최대 크기보다 갯수가 작을 경우 터지지 않음
+        
         int count = 1; // 최초 카운트는 자기자신 1
-        while (true) {
-            if (idx + count > 100) break;
-            if (arr[idx] == 0) break;
+        while (idx + count <= MAX_N) {
             if (arr[idx+count] != arr[idx] || count == M) break;
             count ++;
         }
@@ -29,29 +31,37 @@ public class Main {
         }
 
         int[] tempArr = new int[MAX_N+1];
-        boolean isBoomed = false;
-        do {
+
+        boolean isBoomed = true;
+
+        while (isBoomed) {
             isBoomed = false;
             int tempIdx = 0;
             int idx = 0;
-            while (idx <= 100) {
+            while (idx < N) {
                 if (isBoom(idx, M)) {
-                    while (idx < 100 && arr[idx] == arr[idx+1]) idx ++;
-                    idx ++;
+                    while (arr[idx] == arr[idx+1]) idx++;
+                    idx++;
                     isBoomed = true;
-                    continue;
                 }
-                tempArr[tempIdx] = arr[idx];
-                tempIdx ++;
-                idx ++;
-                if (idx == MAX_N) break;
-            }
+                else {
 
-            for (int i=0; i<MAX_N; i++) {
+                    while (idx < N && arr[idx] == arr[idx+1]) {
+                        tempArr[tempIdx] = arr[idx];
+                        tempIdx ++;
+                        idx ++;
+                    }
+                    tempArr[tempIdx] = arr[idx];
+                    tempIdx ++;
+                    idx ++;
+                }
+            }
+            for (int i=0; i<N; i++) {
                 arr[i] = tempArr[i];
                 tempArr[i] = 0;
             }
-        } while (isBoomed);
+        }
+
         int boomNum = 0;
         for (int i=0; i<N; i++) {
             if (arr[i] == 0) break;
