@@ -28,6 +28,7 @@ public class Main {
         }
 
         for (int j=0; j<n; j++) {
+            if (j == col) continue;
             if (col - power <j && j < col + power) {
                 int idx = n-1;
                 int tempIdx = n-1;
