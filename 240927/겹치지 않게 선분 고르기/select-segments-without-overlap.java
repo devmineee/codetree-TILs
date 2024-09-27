@@ -38,15 +38,16 @@ public static void unMarkLine(int start, int end) {
 public static void choose(int n, int v, int recur) {
 
 
+   
+
+
     for (int i=v; i<n; i++) {
         
-        if (!isOverlap(x1[v], x2[v])) {
-
-            if (ans < recur + 1) ans = recur + 1;
-
-            markLine(x1[v], x2[v]);
+        if (!isOverlap(x1[i], x2[i])) {
+            if (ans < recur +1 ) ans = recur+1;
+            markLine(x1[i], x2[i]);
             choose(n, i+1, recur+1);
-            unMarkLine(x1[v], x2[v]);
+            unMarkLine(x1[i], x2[i]);
         }
     }
     
