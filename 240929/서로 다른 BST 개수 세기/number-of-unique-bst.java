@@ -29,8 +29,10 @@ public class Main {
                 temp[i] = 0;
             }
 
-            if (currentNum == num) return;
+            
         }
+
+        if (currentNum == num) return;
 
         BST(num, currentNum+1);
 
