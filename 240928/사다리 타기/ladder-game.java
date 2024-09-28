@@ -13,7 +13,7 @@ public class Main {
     public static int radder(int lineNum) {
         int currentLine = lineNum;
         int currentHigh = 1;
-        while (currentHigh <= m) {
+        while (currentHigh <= 15) {
             if (line[currentLine][currentHigh] == 1) currentLine ++; // 오른쪽의 라인과 연결되어 있는 경우 오른쪽으로 이동
             else if (line[currentLine-1][currentHigh] == 1) currentLine --; // 왼쪽의 라인과 연결되어 있는 경우 왼쪽으로 이동
             currentHigh ++; // 한칸 올라가기
@@ -40,7 +40,7 @@ public class Main {
             // 같은 라인에서 세로줄 0개 ~ m개 사용할 수도 있음
             for (int i=1; i<=n-1; i++) { // 맨 오른쪽 라인은 갈 곳이 없음
                 if (i < startX) continue;
-                for (int j=1; j<=m; j++) {
+                for (int j=1; j<=15; j++) {
                     
                     if (i == startX && j <= startY) continue;
 
@@ -75,7 +75,7 @@ public class Main {
         }
 
         for (int i=1; i<=n; i++) {
-            for (int j=1; j<=m; j++) {
+            for (int j=1; j<=15; j++) {
                 line[i][j] = 0;
             }
         }
