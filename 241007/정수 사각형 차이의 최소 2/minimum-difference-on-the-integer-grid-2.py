@@ -1,48 +1,61 @@
 from collections import deque
 
-INF = 987654321
 n = int(input())
+board = [list(map(int, input().split())) for _ in range(n)]
 
-board = [0 for _ in range(n)]
-
-for i in range(n):
-    board[i] = list(map(int,input().split()))
-
-dp = [[0 for i in range(n)] for j in range(n)]
-
-for i in range(n):
-    for j in range(n):
-        dp[i][j] = INF #[INF, -INF]
-
-dx = [0,1]
-dy = [1,0]
-
-def bfs(cur_y,cur_x, n):
-
-    dp[0][0] = 0
-
-    que = deque()
-    que.append((cur_y, cur_x, board[0][0], board[0][0])) # min _ MaX
-    # print(f"?? {board[0][0]}")
-    while que:
-        cur = que.popleft()
-        cur_y = cur[0]
-        cur_x = cur[1]
-        cur_min = cur[2]
-        cur_max = cur[3]
+# BFS로 주어진 최댓값과 최솟값의 차이로 목표 지점까지 도달 가능한지 확인
+def bfs(min_val, max_val):
+    if board[0][0] < min_val or board[0][0] > max_val:
+        return False
+    
+    # BFS 시작
+    queue = deque([(0, 0)])
+    visited = [[False] * n for _ in range(n)]
+    visited[0][0] = True
+    
+    # 방향: 오른쪽, 아래쪽
+    dx = [0, 1]
+    dy = [1, 0]
+    
+    while queue:
+        x, y = queue.popleft()
+        
+        # 목표 지점에 도달하면 성공
+        if x == n - 1 and y == n - 1:
+            return True
+        
         for i in range(2):
-            ny = cur_y + dy[i]
-            nx = cur_x + dx[i]
-            if 0<=ny<n and 0<=nx<n:
-                nxt_val = board[ny][nx]
-                nxt_min = min(nxt_val,cur_min)
-                nxt_max = max(nxt_val,cur_max)
-                que.append((ny,nx,nxt_min, nxt_max))
-                # print(ny,nx,n)
-                dp[ny][nx] = min(nxt_max - nxt_min, dp[ny][nx])
-                # print(ny,nx, nxt_max - nxt_min, nxt_min)
-bfs(0,0,n)
-# for dp1 in board:
-#     print(*dp1)
+            nx, ny = x + dx[i], y + dy[i]
+            if 0 <= nx < n and 0 <= ny < n and not visited[nx][ny]:
+                if min_val <= board[nx][ny] <= max_val:
+                    visited[nx][ny] = True
+                    queue.append((nx, ny))
+    
+    return False
 
-print(dp[n-1][n-1])
+# 이진 탐색
+def solve():
+    left, right = 0, 100  # 값의 범위는 1 ~ 100으로 주어졌으므로 0~100 범위
+    result = right
+    
+    # 이진 탐색으로 가능한 최소 차이를 찾음
+    while left <= right:
+        mid = (left + right) // 2
+        
+        # min_val 범위를 설정해서 각 경우에 대해 BFS를 실행
+        found = False
+        for min_val in range(1, 101 - mid):
+            if bfs(min_val, min_val + mid):
+                found = True
+                break
+        
+        if found:
+            result = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+    
+    return result
+
+# 결과 출력
+print(solve())
