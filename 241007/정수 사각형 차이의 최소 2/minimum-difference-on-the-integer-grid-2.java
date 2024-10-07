@@ -21,8 +21,8 @@ public class Main {
 
         for (int row=1; row<n; row++) {
             int value = grid[row][0];
-            dpMin[row][0] = Math.min(value, dpMin[row][0]);
-            dpMax[row][0] = Math.max(value, dpMax[row][0]);       
+            dpMin[row][0] = Math.min(value, dpMin[row-1][0]);
+            dpMax[row][0] = Math.max(value, dpMax[row-1][0]);       
         }
     }
 
